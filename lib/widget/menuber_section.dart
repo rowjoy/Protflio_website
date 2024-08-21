@@ -38,12 +38,13 @@ class _ManuBerSectionState extends State<ManuBerSection> {
                  ishover = value;
               });
             },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                    Text( WebManuBerItem.webManuBerItemList[index],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text( WebManuBerItem.webManuBerItemList[index],
                        style: GoogleFonts.sora(
                           textStyle :  TextStyle(
                              color:  isSelected ==  WebManuBerItem.webManuBerItemList[index] ? Colors.black :  Colors.grey,
@@ -52,9 +53,9 @@ class _ManuBerSectionState extends State<ManuBerSection> {
                           ),
                        ),
                      ),
-                   
-                ],
-              ),
+                  ),
+                 
+              ],
             ),
           );
         }

@@ -20,7 +20,13 @@ class EndDrawerSection extends StatelessWidget {
     return Container(
       width: context.webwidth / 2,
       // height: context.webHight / 1.5,
-      color: WebColors.thameColors,
+      decoration: BoxDecoration(
+         color: WebColors.thameColors,
+         borderRadius: BorderRadius.only(
+           topLeft: Radius.circular(10),
+           bottomLeft: Radius.circular(10)
+         )
+      ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: ListView.builder(

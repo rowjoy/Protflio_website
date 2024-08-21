@@ -1,6 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names, sized_box_for_whitespace, avoid_unnecessary_containers
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:protflio_website/core/images_path.dart';
 import 'package:protflio_website/core/web_colors.dart';
 import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
@@ -12,100 +15,158 @@ class HomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
+    print("${context.webwidth}");
     return Container(
-      height: context.webHight / 1.3,
-      width: context.webwidth,
-      color: WebColors.thameColors,
-      child: Padding(
-        padding:  EdgeInsets.all(WebSizes.laftSidePadding(context)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-             Container(
-               width: context.webwidth / 3 - 10,
-               child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                    Text("Hi Everyone, I am"),
-                    Text("Jamirul islam joy"),
-                    Text("Hello I've successfully developed and maintained Flutter applications that prioritize user experience and performance. I'm confident in my ability to write clean code, design intuitive interfaces, and collaborate effectively with cross-functional teams.",
-                      textAlign: TextAlign.justify,
-                    ),
-                 ],
-               ),
-             ),
+     //height: context.webHight / 1.3,
+      child: !WebSizes.mobileDevice(context) ?  Row (
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+           HomeLeftSection(),
 
-             Stack(
-               children: [
-                 CustomPaint(
-                  size: Size(context.webwidth / 4.5, context.webHight ), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: RPSCustomPainter(),
-                ),
-
-                Transform.translate(
-                  offset: Offset(40, 0),
-                  child:  CircleAvatar(
-                     radius:  context.webHight / 7,
-                   ),
-                 ),
-               ],
-             ),
-          ],
-        ),
+           Hero(
+            tag: "profile",
+            child: ProfileImageUser()
+           ),
+         ],
+        ) : Column(
+         children: [
+            Hero(
+              tag: "profile",
+              child: ProfileImageUser()
+            ),
+            HomeLeftSection(),
+            
+         ],
       ),
     );
   }
 }
 
-
-
-class RPSCustomPainter extends CustomPainter{
-  
-  @override
-  void paint(Canvas canvas, Size size) {
-    
-    
-
-  // Layer 1
-  
-  Paint paint_fill_0 = Paint()
-      ..color = const Color.fromARGB(255, 69, 123, 157)
-      ..style = PaintingStyle.fill
-      ..strokeWidth = size.width*0.00
-      ..strokeCap = StrokeCap.butt
-      ..strokeJoin = StrokeJoin.miter;
-     
-         
-    Path path_0 = Path();
-    path_0.moveTo(size.width,size.height);
-    path_0.quadraticBezierTo(size.width,size.height,size.width,size.height);
-    path_0.cubicTo(size.width,size.height,size.width,size.height,size.width,size.height*0.2);
-    path_0.cubicTo(size.width,size.height*0,size.width*0,size.height*0.4,size.width*0,size.height*0.5);
-    path_0.quadraticBezierTo(size.width*0,size.height,size.width*0,size.height);
-    path_0.close();
-
-    canvas.drawPath(path_0, paint_fill_0);
-  
-
-  // Layer 1
-  
-  Paint paint_stroke_0 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width*0.00
-      ..strokeCap = StrokeCap.butt
-      ..strokeJoin = StrokeJoin.miter;
-     
-         
-    
-    canvas.drawPath(path_0, paint_stroke_0);
-  
-    
-  }
+class ProfileImageUser extends StatelessWidget {
+  const ProfileImageUser({
+    super.key,
+  });
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+         // LottieBuilder.asset(AnimationPath.meBackGroundAnimation),
+         Container(
+           width: 230,
+           height: 230,
+           decoration: BoxDecoration(
+             borderRadius: BorderRadius.circular(10),
+             color: WebColors.secendryColors,
+           ),
+         ),
+    
+         Transform.translate(
+           offset: Offset(-84, -70),
+           child: Image.asset(ImagePath.useMe,   width: 400 , height: 300),
+         )
+      ],
+    );
   }
-  
+}
+
+class HomeLeftSection extends StatelessWidget {
+  const HomeLeftSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           AutoSizeText("Hi Everyone, I am",
+            style: GoogleFonts.sora(
+              textStyle: TextStyle(
+                 fontSize: 20,
+                 color: WebColors.secendryColors,
+                // color: WebColors.backColors,
+              ),
+            ),
+           ),
+           SizedBox(height: 10),
+           AutoSizeText("Jamirul Islam Joy",
+             style: GoogleFonts.sora(
+               textStyle:TextStyle(
+                 color: WebColors.backColors,
+                 fontSize: 40,
+               ),
+             )
+           ),
+          SizedBox(height: 10),
+           Container(
+             width: context.webwidth / 2,
+             child: AutoSizeText("Hello I've successfully developed and maintained Flutter applications that prioritize user experience and performance. I'm confident in my ability to write clean code, design intuitive interfaces, and collaborate effectively with cross-functional teams.",
+               textAlign: TextAlign.start,
+               style: GoogleFonts.sora (
+                  textStyle : TextStyle(
+                    color: WebColors.backColors,
+                    fontSize: 17
+                  )
+               ),
+             ),
+           ),
+           SizedBox(height: 30,),
+           Row(
+              children: [
+               Material(
+                 elevation: 5,
+                 shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                 ),
+                 child: Container(
+                   width: context.webwidth / 6,
+                   height: 45,
+                   decoration: BoxDecoration(
+                     color: WebColors.secendryColors,
+                     borderRadius: BorderRadius.circular(4.0)
+                   ),
+                   child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text("Download CV",
+                          style: GoogleFonts.sora(
+                            textStyle: TextStyle(
+                              color: WebColors.colorsWhite,
+                            )
+                          ),
+                        ),
+                        Icon(Icons.download_rounded,color: WebColors.colorsWhite,)
+                      ],
+                   ),
+                 ),
+               ),
+               SizedBox(width: 8),
+               Container(
+                 width: context.webwidth / 6, //Explore More
+                 height: 45,
+                 decoration: BoxDecoration(
+                     border: Border.all(width: 1,color:  WebColors.secendryColors),
+                     borderRadius: BorderRadius.circular(4.0)
+                 ),
+                 child: Center(
+                   child: Text("Explore More",
+                       style: GoogleFonts.sora(
+                         textStyle: TextStyle(
+                           color: WebColors.smallFontColors,
+                         )
+                       ),
+                     ),
+                 ),
+                ),
+              ],
+           ),
+        ],
+      ),
+    );
+  }
 }
