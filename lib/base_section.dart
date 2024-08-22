@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:protflio_website/core/web_colors.dart';
 import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
-import 'package:protflio_website/widget/home_section.dart';
-import 'package:protflio_website/widget/menuber_section.dart';
-import 'package:protflio_website/widget/web_logo.dart';
+import 'package:protflio_website/section/about_me_section.dart';
+import 'package:protflio_website/section/home_section.dart';
+import 'package:protflio_website/style_section/menuber_section.dart';
+import 'package:protflio_website/style_section/web_logo.dart';
 
-import 'widget/web_drawer_section.dart';
+import 'style_section/web_drawer_section.dart';
 
 class BaseSection extends StatelessWidget {
   const BaseSection({super.key});
@@ -40,16 +41,23 @@ class BaseSection extends StatelessWidget {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          
             ///[ --------HomeSection view------------ ]
             Padding(
               padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
-              child: HomeSection(),
+              child: Container(
+                height: context.webHight,
+                child: HomeSection()
+              ),
             ),
-      
+            ///[-------- About me -------------]
             Container(
-              height: 500,
-              color: Colors.black12,
+              //height: context.webHight * 0.7,
+              // width: context.webwidth,
+              color: Colors.white,
+              child: Padding(
+                padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
+                child: AboutMeSection(),
+              ),
             ),
             Container(
               height: 500,
