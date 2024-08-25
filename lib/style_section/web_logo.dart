@@ -14,7 +14,7 @@ class WebLogo extends StatelessWidget {
     return AutoSizeText("Jamirul islam".toUpperCase(),
       style: GoogleFonts.sora(
         textStyle: TextStyle(
-          fontSize: 26,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.5,
         ),

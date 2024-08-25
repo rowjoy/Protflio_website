@@ -6,6 +6,7 @@ import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
 import 'package:protflio_website/section/about_me_section.dart';
 import 'package:protflio_website/section/home_section.dart';
+import 'package:protflio_website/section/skill_section.dart';
 import 'package:protflio_website/style_section/menuber_section.dart';
 import 'package:protflio_website/style_section/web_logo.dart';
 
@@ -59,9 +60,14 @@ class BaseSection extends StatelessWidget {
                 child: AboutMeSection(),
               ),
             ),
+            ///[------------Skill Section--------------]
             Container(
-              height: 500,
-              color: Colors.green,
+              //height: 500,
+              //color: Colors.green,
+              child: Padding(
+                padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context), top:  WebSizes.padding(context) + 50 , bottom:  WebSizes.padding(context) + 50 ),
+                child: SkillSection(),
+              ),
             ),
             Container(
               height: 500,
