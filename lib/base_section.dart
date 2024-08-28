@@ -13,7 +13,9 @@ import 'package:protflio_website/style_section/web_logo.dart';
 import 'style_section/web_drawer_section.dart';
 
 class BaseSection extends StatelessWidget {
-  const BaseSection({super.key});
+   BaseSection({super.key});
+
+  PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +35,18 @@ class BaseSection extends StatelessWidget {
               mainAxisAlignment: WebSizes.mobileDevice(context) ? MainAxisAlignment.spaceBetween :  MainAxisAlignment.spaceBetween,
               children: [
                 WebLogo(),
-                WebSizes.mobileDevice(context) ? WebDrawerSection(scaffoldKey: scaffoldKey) : ManuBerSection(),
+                WebSizes.mobileDevice(context) ? WebDrawerSection(scaffoldKey: scaffoldKey) : ManuBerSection(pageController: pageController,),
               ],
             ),
           ),
         ),
       ),
-      body: ListView(
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (index){
+          // ignore: avoid_print
+          print("Current page ${index}");
+        },
         scrollDirection: Axis.vertical,
         children: [
             ///[ --------HomeSection view------------ ]
@@ -79,6 +86,7 @@ class BaseSection extends StatelessWidget {
             ),
         ],
       ),
+      
     );
   }
 }
