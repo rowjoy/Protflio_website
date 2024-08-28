@@ -7,8 +7,10 @@ import 'package:protflio_website/core/web_sizes.dart';
 import '../core/local_data.dart';
 
 class ManuBerSection extends StatefulWidget {
+  final PageController pageController;
   const ManuBerSection({
     super.key,
+    required this.pageController,
   });
 
   @override
@@ -31,6 +33,7 @@ class _ManuBerSectionState extends State<ManuBerSection> {
               print(WebManuBerItem.webManuBerItemList[index]);
               setState(() {
                  isSelected = WebManuBerItem.webManuBerItemList[index];
+                 widget.pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
               });
             },
             onHover: (value) {
