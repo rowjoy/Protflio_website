@@ -33,7 +33,7 @@ class _ManuBerSectionState extends State<ManuBerSection> {
               print(WebManuBerItem.webManuBerItemList[index]);
               setState(() {
                  isSelected = WebManuBerItem.webManuBerItemList[index];
-                 widget.pageController.animateToPage(index, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                 widget.pageController.animateToPage(index, duration: Duration(seconds: 1), curve: Curves.easeIn);
               });
             },
             onHover: (value) {

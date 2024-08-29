@@ -11,9 +11,10 @@ class SkillSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, b){
-        final size = context.webwidth;
+        //final size = context.webwidth;
         // ignore: avoid_unnecessary_containers
         return Container(
+           height: context.webHight * 0.8,
            child: Column(
              crossAxisAlignment: CrossAxisAlignment.center,
              //mainAxisAlignment: MainAxisAlignment.center,
