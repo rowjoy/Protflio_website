@@ -13,51 +13,79 @@ import '../core/images_path.dart';
 import '../core/web_sizes.dart';
 
 class ProfileImageUser extends StatelessWidget {
-  const ProfileImageUser({
+  double opacity;
+  ProfileImageUser({
     super.key,
+    required this.opacity,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: [
-         Container(
-           width: 230,
-           height: 230,
-           decoration: BoxDecoration(
-             borderRadius: BorderRadius.circular(10),
-             color: WebColors.secendryColors,
-           ),
-         ),
-    
-         Transform.translate(
-           offset: const Offset(0, -35),
-           child: Image.asset(ImagePath.useMe,   width: 400 , height: 300),
-         ),
-         Container(
-           width: 235,
-           height: 238,
-           decoration: BoxDecoration(
-             borderRadius: BorderRadius.circular(10),
-             //color: WebColors.secendryColors,
-             border: Border(
-               bottom: BorderSide(width: 5, color: WebColors.secendryColors),
-               top: BorderSide.none,
-               left: BorderSide(width: 3, color: WebColors.secendryColors),
-               right: BorderSide(width: 3, color: WebColors.secendryColors)
+    return AnimatedOpacity(
+      duration: Duration(seconds: 1),
+      opacity: opacity,
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+           Transform.translate(
+             offset: Offset(10, 15),
+             transformHitTests : false,
+             child: Container(
+               width: 235,
+               height: 238,
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(10),
+                 //color: WebColors.secendryColors,
+                 border: Border(
+                   bottom: BorderSide(width: 5, color: WebColors.secendryColors),
+                   top: BorderSide(width: 3, color: WebColors.secendryColors),
+                   left: BorderSide(width: 3, color: WebColors.secendryColors),
+                   right: BorderSide(width: 3, color: WebColors.secendryColors)
+                 ),
+               ),
              ),
            ),
-         ),
-
-      ],
+           Container(
+             width: 230,
+             height: 230,
+             decoration: BoxDecoration(
+               borderRadius: BorderRadius.circular(10),
+               color: WebColors.secendryColors,
+             ),
+           ),
+      
+           Transform.translate(
+             offset: const Offset(0, -35),
+             child: Image.asset(ImagePath.useMe,   width: 400 , height: 300),
+           ),
+           Container(
+             width: 235,
+             height: 238,
+             decoration: BoxDecoration(
+               borderRadius: BorderRadius.circular(10),
+               //color: WebColors.secendryColors,
+               border: Border(
+                 bottom: BorderSide(width: 5, color: WebColors.secendryColors),
+                 top: BorderSide.none,
+                 left: BorderSide(width: 3, color: WebColors.secendryColors),
+                 right: BorderSide(width: 3, color: WebColors.secendryColors)
+               ),
+             ),
+           ),
+           
+      
+      
+        ],
+      ),
     );
   }
 }
 
 class HomeLeftSection extends StatelessWidget {
-  const HomeLeftSection({
+  bool ismallTobig;
+  HomeLeftSection({
     super.key,
+    required this.ismallTobig
   });
 
   @override
@@ -77,7 +105,11 @@ class HomeLeftSection extends StatelessWidget {
                SizedBox(height: 10),
                InfomationText(),
                SizedBox(height: 30,),
-               ButtonSection(width: width),
+               AnimatedSize(
+                duration: Duration(seconds: 1),
+                curve: Curves.easeInOutSine,
+                child: ButtonSection(width: ismallTobig ? width : 0)
+              ),
             ],
           ),
         );

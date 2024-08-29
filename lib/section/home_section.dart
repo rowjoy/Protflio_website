@@ -5,22 +5,48 @@ import 'package:protflio_website/core/web_sizes.dart';
 
 import '../style_section/home_component.dart';
 
-class HomeSection extends StatelessWidget {
+class HomeSection extends StatefulWidget {
   const HomeSection({
     super.key,
   });
 
   @override
+  State<HomeSection> createState() => _HomeSectionState();
+}
+
+class _HomeSectionState extends State<HomeSection> {
+  double opacityvalue = 0.0;
+  bool isselect = false;
+
+  @override
+  void initState() {
+    Future.delayed(Duration(milliseconds: 300),(){
+      setState(() {
+        opacityvalue = 1.0;
+        isselect = true;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print(opacityvalue);
     return Container(
       child: !WebSizes.mobileDevice(context) ?  Row (
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-           HomeLeftSection(),
+           HomeLeftSection(ismallTobig: isselect,),
            Hero(
               tag: "profile",
-              child: ProfileImageUser()
+              child: ProfileImageUser(opacity: opacityvalue)
             ),
           ],
         ) : Container(
@@ -29,9 +55,9 @@ class HomeSection extends StatelessWidget {
             children: [
               Hero(
                 tag: "profile",
-                child: ProfileImageUser()
+                child: ProfileImageUser(opacity: opacityvalue,)
               ),
-              HomeLeftSection(),
+              HomeLeftSection(ismallTobig: isselect,),
            ],
           ),
         ),
