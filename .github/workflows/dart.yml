@@ -37,7 +37,7 @@ jobs:
     - name: Upload APK to Release
       uses: actions/upload-release-asset@v1
       with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{steps.create_release.outputs.upload_url}}
           asset_path: build/app/outputs/flutter-apk/app-release.apk  # Path to the APK file
           asset_name: app-release.apk  # Name of the APK file in the release
           asset_content_type: application/vnd.android.package-archive
