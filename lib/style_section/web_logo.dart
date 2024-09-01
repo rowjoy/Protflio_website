@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class WebLogo extends StatelessWidget {
     return AutoSizeText("Jamirul islam".toUpperCase(),
       style: GoogleFonts.sora(
         textStyle: TextStyle(
-          fontSize: 20,
+          fontSize: 0,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.5,
         ),

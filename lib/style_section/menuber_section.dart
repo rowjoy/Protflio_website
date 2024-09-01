@@ -12,7 +12,6 @@ class ManuBerSection extends StatefulWidget {
     super.key,
     required this.pageController,
   });
-
   @override
   State<ManuBerSection> createState() => _ManuBerSectionState();
 }

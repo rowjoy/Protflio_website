@@ -45,6 +45,10 @@ dependencies:
   hooks_riverpod: ^2.5.2
   riverpod_annotation: ^2.3.5
   flutter_hooks: ^0.20.5
+  flutter_animate: ^4.5.0
+  flutter_syntax_view: ^4.1.0
+  avatar_glow: ^3.0.1
+  
 
 dev_dependencies:
   flutter_test:

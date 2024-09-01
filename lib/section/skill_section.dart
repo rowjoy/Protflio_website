@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:protflio_website/core/web_extention.dart';
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
+import '../core/local_data.dart';
 import '../core/theme.dart';
 
 class SkillSection extends StatelessWidget {
@@ -11,54 +12,46 @@ class SkillSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, b){
-        //final size = context.webwidth;
-        // ignore: avoid_unnecessary_containers
-        return Container(
-           height: context.webHight * 0.8,
-           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.center,
-             //mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-                AutoSizeText("Skills",
-                  style: TextStyleTheme.smallText(),
-                 ),
-                Text("What I am capable of ?",
-                  style: TextStyleTheme.largeText(),
-                ),
-                Container(
-                  height: 120,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: imageName.length,
-                    itemBuilder: (BuildContext context, index){
-                      return Container(
-                        width: 70,
-                        height: 70,
-                        child: Image.asset("assets/skill/${imageName[index]}")
-                       );
-                    }
-                  ),
-                )
-                // Expanded(
-                //   child: GridView.extent(
-                //     shrinkWrap: true,
-                //     scrollDirection: Axis.vertical,
-                //     clipBehavior: Clip.antiAlias,
-                //     maxCrossAxisExtent: 100,
-                //     crossAxisSpacing: 20.0,
-                //     mainAxisSpacing: 20.0,
-                //       children: imageName.map((el) => Row(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         children: [
-                //           Image.asset("assets/skill/$el"),
-                //         ],
-                //       )
-                //      ).toList(),
-                //   ),
-                // ),
-             ],
-           ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             AutoSizeText("Skills",
+               style: TextStyleTheme.smallText(),
+              ),
+             Text("What I am capable of ?",
+               style: TextStyleTheme.largeText(),
+             ),
+             Container(
+               height: 120,
+               child: ListView.builder(
+                 shrinkWrap: true,
+                 scrollDirection: Axis.horizontal,
+                 itemCount: imageName.length,
+                 itemBuilder: (BuildContext context, index){
+                   return Container(
+                     width: 100,
+                     height: 100,
+                     child: Padding(
+                       padding: const EdgeInsets.all(15.0),
+                       child: Image.asset("assets/skill/${imageName[index]}"),
+                     )
+                    );
+                 }
+               ),
+             ),
+
+             SyntaxView(
+                code: WebManuBerItem.mySkill,	// Code text
+                syntax: Syntax.DART,	// Language
+                syntaxTheme: SyntaxTheme.gravityDark(),	// Theme
+                fontSize: 14.0,	// Font size
+                withZoom: false,	// Enable/Disable zoom icon controls
+                withLinesCount: false,	// Enable/Disable line number
+                expanded: false,	// Enable/Disable container expansion
+                selectable: true // Enable/Disable code text selection
+              ),
+          ],
         );
 
       }

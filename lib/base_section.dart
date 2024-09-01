@@ -1,15 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, must_be_immutable, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:protflio_website/core/web_colors.dart';
 import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
 import 'package:protflio_website/section/about_me_section.dart';
 import 'package:protflio_website/section/home_section.dart';
-import 'package:protflio_website/section/skill_section.dart';
 import 'package:protflio_website/style_section/menuber_section.dart';
 import 'package:protflio_website/style_section/web_logo.dart';
 
+import 'section/skill_section.dart';
 import 'style_section/web_drawer_section.dart';
 
 class BaseSection extends StatelessWidget {
@@ -31,18 +32,22 @@ class BaseSection extends StatelessWidget {
           padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
           child: Container(
             height: context.webHight / 10,
-            child: Row(
-              mainAxisAlignment: WebSizes.mobileDevice(context) ? MainAxisAlignment.spaceBetween :  MainAxisAlignment.spaceBetween,
-              children: [
-                WebLogo(),
-                WebSizes.mobileDevice(context) ? WebDrawerSection(scaffoldKey: scaffoldKey) : ManuBerSection(pageController: pageController,),
-              ],
+            child: Animate(
+              effects: [FadeEffect(), ScaleEffect()],
+              child: Row(
+                mainAxisAlignment: WebSizes.mobileDevice(context) ? MainAxisAlignment.spaceBetween :  MainAxisAlignment.spaceBetween,
+                children: [
+                  WebLogo(),
+                  WebSizes.mobileDevice(context) ? WebDrawerSection(scaffoldKey: scaffoldKey) : ManuBerSection(pageController: pageController,),
+                ],
+              ),
             ),
           ),
         ),
       ),
       body: PageView(
         controller: pageController,
+        physics: BouncingScrollPhysics(),
         onPageChanged: (index){
           // ignore: avoid_print
           print("Current page ${index}");
@@ -54,7 +59,10 @@ class BaseSection extends StatelessWidget {
               padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
               child: Container(
                 height: context.webHight,
-                child: HomeSection()
+                child: Animate(
+                  effects: [FadeEffect(), ScaleEffect()],
+                  child: HomeSection()
+                ),
               ),
             ),
             ///[-------- About me -------------]
@@ -64,16 +72,22 @@ class BaseSection extends StatelessWidget {
               color: Colors.white,
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
-                child: AboutMeSection(),
+                child: Animate(
+                  delay: Duration(milliseconds: 200),
+                  effects: [FadeEffect(), ScaleEffect()],
+                  child: AboutMeSection()
+                  ),
               ),
             ),
             ///[------------Skill Section--------------]
             Container(
-              //height: 500,
-              //color: Colors.green,
               child: Padding(
-                padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context), top:  WebSizes.padding(context) + 50 , bottom:  WebSizes.padding(context) + 50 ),
-                child: SkillSection(),
+                padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
+                child: Animate(
+                  delay: Duration(milliseconds: 200),
+                  effects: [FadeEffect(), ScaleEffect()],
+                  child: SkillSection()
+                ),
               ),
             ),
             Container(
