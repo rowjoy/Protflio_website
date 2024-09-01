@@ -3,6 +3,7 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:protflio_website/core/theme.dart';
@@ -45,12 +46,16 @@ class ProfileImageUser extends StatelessWidget {
                ),
              ),
            ),
-           Container(
-             width: 230,
-             height: 230,
-             decoration: BoxDecoration(
-               borderRadius: BorderRadius.circular(10),
-               color: WebColors.secendryColors,
+           AvatarGlow(
+             glowColor:WebColors.secendryColors, 
+             glowRadiusFactor: 0.3,
+             child: Container(
+               width: 230,
+               height: 230,
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(10),
+                 color: WebColors.secendryColors,
+               ),
              ),
            ),
       
@@ -73,8 +78,6 @@ class ProfileImageUser extends StatelessWidget {
              ),
            ),
            
-      
-      
         ],
       ),
     );
@@ -134,30 +137,34 @@ class ButtonSection extends StatelessWidget {
       child: Row(
          mainAxisAlignment: MainAxisAlignment.start,
          children: [
-          InkWell(
-            onTap: (){
-
-            },
-            child: Container(
-              width:  width / 2.5, //Download CV
-              height: 45,
-              decoration: BoxDecoration(
-                color: WebColors.secendryColors,
-                borderRadius: BorderRadius.circular(4.0)
-              ),
-              child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                 children: [
-                   Text("Download CV",
-                     style: GoogleFonts.sora(
-                       textStyle: TextStyle(
-                         color: WebColors.colorsWhite,
-                       )
+          AvatarGlow(
+            glowColor:WebColors.secendryColors, 
+           // glowRadiusFactor: 0.3,
+            child: InkWell(
+              onTap: (){
+            
+              },
+              child: Container(
+                width:  width / 2.5, //Download CV
+                height: 45,
+                decoration: BoxDecoration(
+                  color: WebColors.secendryColors,
+                  borderRadius: BorderRadius.circular(4.0)
+                ),
+                child: Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                   children: [
+                     Text("Download CV",
+                       style: GoogleFonts.sora(
+                         textStyle: TextStyle(
+                           color: WebColors.colorsWhite,
+                         )
+                       ),
                      ),
-                   ),
-                   Icon(Icons.download_sharp,color: WebColors.colorsWhite,)
-                  //  SvgPicture.asset("download_icon.svg"),
-                 ],
+                     Icon(Icons.download_sharp,color: WebColors.colorsWhite,)
+                    //  SvgPicture.asset("download_icon.svg"),
+                   ],
+                ),
               ),
             ),
           ),
