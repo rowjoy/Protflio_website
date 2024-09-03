@@ -70,25 +70,26 @@ class BaseSection extends StatelessWidget {
             Container(
               //height: context.webHight * 0.7,
               // width: context.webwidth,
-              color: Colors.white,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  image: AssetImage("assets/about-animi.gif"),
+                  fit: BoxFit.cover,
+                  opacity: 0.1,
+                  isAntiAlias: true,
+                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.exclusion),
+                ),
+              ),
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
-                child: Animate(
-                  delay: Duration(milliseconds: 200),
-                  effects: [FadeEffect(), ScaleEffect()],
-                  child: AboutMeSection()
-                  ),
+                child: AboutMeSection(),
               ),
             ),
             ///[------------Skill Section--------------]
             Container(
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
-                child: Animate(
-                  delay: Duration(milliseconds: 200),
-                  effects: [FadeEffect(), ScaleEffect()],
-                  child: SkillSection()
-                ),
+                child: SkillSection(),
               ),
             ),
             Container(
