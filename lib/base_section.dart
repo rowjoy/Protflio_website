@@ -46,13 +46,9 @@ class BaseSection extends StatelessWidget {
           ),
         ),
       ),
-      body: PageView(
+      body: ListView(
         controller: pageController,
         physics: BouncingScrollPhysics(),
-        onPageChanged: (index){
-          // ignore: avoid_print
-          print("Current page ${index}");
-        },
         scrollDirection: Axis.vertical,
         children: [
             ///[ --------HomeSection view------------ ]
@@ -60,25 +56,14 @@ class BaseSection extends StatelessWidget {
               padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
               child: Container(
                 height: context.webHight,
-                child: Animate(
-                  effects: [FadeEffect(), ScaleEffect()],
-                  child: HomeSection()
-                ),
+                child: HomeSection(),
               ),
             ),
             ///[-------- About me -------------]
             Container(
-              //height: context.webHight * 0.7,
-              // width: context.webwidth,
+              height: context.webHight / 1.3,
               decoration: BoxDecoration(
                 color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage("assets/about-animi.gif"),
-                  fit: BoxFit.cover,
-                  opacity: 0.1,
-                  isAntiAlias: true,
-                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.exclusion),
-                ),
               ),
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
@@ -87,13 +72,14 @@ class BaseSection extends StatelessWidget {
             ),
             ///[------------Skill Section--------------]
             Container(
+              height: context.webHight / 1.3,
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
                 child: SkillSection(),
               ),
             ),
             Container(
-              height: 500,
+              height: context.webHight / 1.3,
               color: WebColors.colorsWhite,
               child: Padding(
                 padding:  EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
@@ -102,8 +88,7 @@ class BaseSection extends StatelessWidget {
              // color: Colors.blue,
             ),
             Container(
-              height: 500,
-              color: Colors.amber,
+              height: 300,
             ),
         ],
       ),

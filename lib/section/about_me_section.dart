@@ -2,6 +2,7 @@
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:protflio_website/core/theme.dart';
 import 'package:protflio_website/core/web_extention.dart';
@@ -20,14 +21,14 @@ class AboutMeSection extends StatelessWidget {
          return Container(
            child: !WebSizes.mobileDevice(context) ? Row(
              children: [
-                AboutMeImage(cwidth: cwidth * 0.3, chight: chight * 0.6),
+                AboutMeImage(cwidth: cwidth * 0.3, chight: chight * 0.6).animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                 InformationText(cwidth: cwidth, chight: chight),
              ],
            ) : Column(
              mainAxisAlignment: MainAxisAlignment.center,
              crossAxisAlignment: CrossAxisAlignment.center,
              children: [
-                 AboutMeImage(cwidth: cwidth * 0.3, chight: chight * 0.6),
+                 AboutMeImage(cwidth: cwidth * 0.3, chight: chight * 0.6).animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                  InformationText(cwidth: cwidth, chight: chight),
                  SizedBox(height: chight * 0.1,),
              ],

@@ -20,7 +20,7 @@ class ProjectSection extends StatelessWidget {
              Text("What I have made?",
                style: TextStyleTheme.largeText(),
              ),
-            
+             SizedBox(height: 30),
              Material(
                elevation: 6,
                shape: RoundedRectangleBorder(
@@ -32,15 +32,6 @@ class ProjectSection extends StatelessWidget {
                  decoration: BoxDecoration(
                    borderRadius: BorderRadius.circular(15),
                  ),
-                //  decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //       repeat: ImageRepeat.noRepeat,
-                //       scale: 0.5,
-                //       alignment: Alignment.topCenter,
-                //       image: AssetImage("assets/demo_images.png")
-                //     ),
-                //     color: WebColors.colorsWhite,
-                //  ),
                 child: Column(
                    children: [
                      ClipRRect(
@@ -50,6 +41,32 @@ class ProjectSection extends StatelessWidget {
                       ),
                       child: Image.asset("assets/demo_images.png", scale: 3,)
                     ),
+
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Portfolio Website Design"),
+                        Text("Lorem ipsum dolor sit amet consectetur."),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: (){}, 
+                              child: Text("Android")
+                            ),
+                            TextButton(
+                              onPressed: (){}, 
+                              child: Text("IOS")
+                            ),
+                              TextButton(
+                              onPressed: (){}, 
+                              child: Text("Github"),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    
                    ],
                 ),
                ),

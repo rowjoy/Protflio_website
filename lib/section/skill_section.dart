@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 import '../core/local_data.dart';
@@ -34,7 +35,7 @@ class SkillSection extends StatelessWidget {
                      height: 100,
                      child: Padding(
                        padding: const EdgeInsets.all(15.0),
-                       child: Image.asset("assets/skill/${imageName[index]}"),
+                       child: Image.asset("assets/skill/${imageName[index]}").animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                      )
                     );
                  }
@@ -50,7 +51,7 @@ class SkillSection extends StatelessWidget {
                 withLinesCount: false,	// Enable/Disable line number
                 expanded: false,	// Enable/Disable container expansion
                 selectable: true // Enable/Disable code text selection
-              ),
+              ).animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
           ],
         );
 

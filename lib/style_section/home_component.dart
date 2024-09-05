@@ -2,9 +2,11 @@
 
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
 
+import 'package:animate_text/animate_text.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:protflio_website/core/theme.dart';
 import 'package:protflio_website/core/web_colors.dart';
@@ -102,11 +104,11 @@ class HomeLeftSection extends StatelessWidget {
             crossAxisAlignment:  WebSizes.mobileDevice(context) ? CrossAxisAlignment.center :  CrossAxisAlignment.start,
             mainAxisAlignment:  MainAxisAlignment.center,
             children: [
-               IntroText(),
+               IntroText().animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                SizedBox(height: 10),
-               NameText(),
+               NameText().animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                SizedBox(height: 10),
-               InfomationText(),
+               InfomationText().animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                SizedBox(height: 30,),
                AnimatedSize(
                 duration: Duration(seconds: 1),
@@ -160,7 +162,7 @@ class ButtonSection extends StatelessWidget {
                            color: WebColors.colorsWhite,
                          )
                        ),
-                     ),
+                     ).animate().fade().scale().move(delay: 300.ms, duration: 600.ms),
                      Icon(Icons.download_sharp,color: WebColors.colorsWhite,)
                     //  SvgPicture.asset("download_icon.svg"),
                    ],
@@ -221,8 +223,15 @@ class NameText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoSizeText("Jamirul Islam Joy",
-      style: TextStyleTheme.largeText(),
+    // return AutoSizeText("Jamirul Islam Joy",
+    //   style: TextStyleTheme.largeText(),
+    // );
+  return AnimateText(
+      "Jamirul Islam Joy",
+      style:  TextStyleTheme.largeText(),
+      type: AnimateTextType.leftToRight,
+      isRepeat: false,
+      speed: AnimateTextSpeed.slow,
     );
   }
 }
@@ -235,7 +244,7 @@ class IntroText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoSizeText("Hi Everyone, I am",
-     style: TextStyleTheme.smallText(),
+     style: TextStyleTheme.smallText2(),
     );
   }
 }
