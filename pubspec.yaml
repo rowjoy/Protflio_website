@@ -48,6 +48,8 @@ dependencies:
   flutter_animate: ^4.5.0
   flutter_syntax_view: ^4.1.0
   avatar_glow: ^3.0.1
+  widget_and_text_animator: ^1.1.5
+  animate_text: ^1.0.0
   
 
 dev_dependencies:
