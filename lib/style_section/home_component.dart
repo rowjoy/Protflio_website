@@ -2,7 +2,6 @@
 
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
 
-import 'package:animate_text/animate_text.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
@@ -223,16 +222,16 @@ class NameText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return AutoSizeText("Jamirul Islam Joy",
-    //   style: TextStyleTheme.largeText(),
-    // );
-  return AnimateText(
-      "Jamirul Islam Joy",
-      style:  TextStyleTheme.largeText(),
-      type: AnimateTextType.leftToRight,
-      isRepeat: false,
-      speed: AnimateTextSpeed.slow,
+    return AutoSizeText("Jamirul Islam Joy",
+      style: TextStyleTheme.largeText(),
     );
+  // return AnimateText(
+  //     "Jamirul Islam Joy",
+  //     style:  TextStyleTheme.largeText(),
+  //     type: AnimateTextType.leftToRight,
+  //     isRepeat: false,
+  //     speed: AnimateTextSpeed.slow,
+  //   );
   }
 }
 

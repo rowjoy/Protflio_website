@@ -61,7 +61,7 @@ class BaseSection extends StatelessWidget {
             ),
             ///[-------- About me -------------]
             Container(
-              height: context.webHight / 1.3,
+              //height: context.webHight * 0.9,
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
@@ -72,17 +72,17 @@ class BaseSection extends StatelessWidget {
             ),
             ///[------------Skill Section--------------]
             Container(
-              height: context.webHight / 1.3,
+              height: context.webHight * 0.9,
               child: Padding(
                 padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
                 child: SkillSection(),
               ),
             ),
             Container(
-              height: context.webHight / 1.3,
+             // height: context.webHight / 1.3,
               color: WebColors.colorsWhite,
               child: Padding(
-                padding:  EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
+                padding:  EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context), bottom:  WebSizes.padding(context),top: WebSizes.padding(context)),
                 child: ProjectSection(),
               ),
              // color: Colors.blue,
