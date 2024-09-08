@@ -6,6 +6,7 @@ import 'package:protflio_website/core/web_colors.dart';
 import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
 import 'package:protflio_website/section/about_me_section.dart';
+import 'package:protflio_website/section/contact_section.dart';
 import 'package:protflio_website/section/home_section.dart';
 import 'package:protflio_website/section/project_section.dart';
 import 'package:protflio_website/style_section/menuber_section.dart';
@@ -87,8 +88,12 @@ class BaseSection extends StatelessWidget {
               ),
              // color: Colors.blue,
             ),
-            Container(
-              height: 300,
+            Padding(
+              padding: EdgeInsets.only(left: WebSizes.padding(context), right: WebSizes.padding(context)),
+              child: Container(
+                height: 300,
+                child: ContactSection(),
+              ),
             ),
         ],
       ),
