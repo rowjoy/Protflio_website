@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:protflio_website/core/web_colors.dart';
 
 import '../core/theme.dart';
@@ -19,7 +20,7 @@ class ProjectSection extends StatelessWidget {
             crossAxisCount = 2; // Tablet
           } else {
             crossAxisCount = 1; // Mobile
-          }
+        }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +96,7 @@ class ProjectSection extends StatelessWidget {
                         ),
                     ],
                   ),
-                );
+                ).animate().fade().scale().move(delay: 300.ms, duration: 600.ms);
               },
             ),
           ],
