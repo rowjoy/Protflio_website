@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:protflio_website/core/images_path.dart';
 import 'package:protflio_website/core/theme.dart';
 import 'package:protflio_website/core/web_extention.dart';
 import 'package:protflio_website/core/web_sizes.dart';
@@ -105,7 +106,7 @@ class AboutMeImage extends StatelessWidget {
       // decoration: BoxDecoration(
       //    border: Border.all(width: 1, color: WebColors.thameColors),
       // ),
-      child: SvgPicture.asset("about_me.svg",fit: BoxFit.contain,),
+      child: SvgPicture.asset(ImagePath.aboutme,fit: BoxFit.contain,),
     );
   }
 }
